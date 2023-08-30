@@ -1,38 +1,25 @@
-maven-java-template
-===================
+# Laborationsuppgift 2 – Java-Programmering
 
-This is the base for all standard standalone java based application.
+Den här uppgiften går ut på att lära sig syntaxen samt få viss förståelse för hur man använder objektorienterad programmering med Java.
 
-How to use ?
-=====================
+## Uppgift 1:
 
-1. Clone this repository.
+Skapa två klasser kallade `Rectangle` och `Circle`. Lägg till lämpliga fält på de båda klasserna och implementera konstruktorer och getters samt setters metoder för att kunna initialisera, läsa och uppdatera fältens data.
 
-2. Change the artifactId in your pom.xml with the project name.
+Båda klasserna ska ärva från en abstrakt klass `Shape` som ska definiera de abstrakta metoderna `getArea()` samt `getPerimeter()`. Implementera dessa metoder på våra konkreta `Shape` klasser.
 
-3. Run mvn test, you should get "BUILD SUCCESS".
+På klassen `Shape` ska det även finnas en eller flera statiska metoder som kan användas för att skapa nya shapes av önskad typ. Fundera här på hur.
 
-4. Import the project to your ide.
+## Interface:
 
-5. Add all your packages and source code to
-    * src/main/java
+Låt våra shapes klasser implementera det generiska interfacet `Comparable<T>`. Gör standard implementationen så att den jämför shapes baserat på deras area. Detta kallas då för naturliga ordningen mellan våra shapes men andra implementationer skulle kunna användas för sortering, tex omkretsen.
 
-6. Add the source code for test into
-    * src/test/java
+## Uppgift 2:
 
-Goals
-=========
-1. Clean:
-    * mvn clean
+Skapa ett litet program som skapar ett par objekt av respektive `Shape` typ och sparar dessa i en `ArrayList`. Använd sedan `sort` metoden som finns på `List`/`ArrayList` med `null` som parameter för att utnyttja vår naturliga sorteringsordning och skriv ut listan i sorterad ordning.
 
-2. Build:
-    * mvn compile
-    * mvn test
-    * mvn package
-    * mvn install
-    * mvn exec:java -Dexec.mainClass="com.example.Class"
+## Uppgift 3:
 
-### Plugins
-* Junit5
-* AssertJ
-* Mockito
+Utöka programmet från uppgift 2 till att även innehålla ett `Set` för att lagra `Shape` typer. Lämpligen kan vi använda ett `HashSet` som implementation. Skapa ett antal olika shapes och lägg till dessa till ditt `Set`. Låt minst två shapes som läggs till i `Set` implementationen ha samma mått och typ. Endast ett av dessa objekt borde lagras, men vad händer när du skriver ut innehållet i ditt `Set`?
+
+För att det hela ska fungera som tänkt behöver vi göra implementationer av `equals` och `hashCode` metoderna på våra `Shape` klasser. Efter att detta gjorts bör nu endast ett exemplar lagras med samma mått och typ.
