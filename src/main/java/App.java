@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class App {
     public static void main(String[] args) {
 
@@ -22,8 +24,15 @@ public class App {
         System.out.println("\nTriangelns area: " +  String.format("%.2f", triangleArea));
         System.out.println("\nTriangelns omkrets: " + String.format("%.2f", trianglePerimeter));
 
+        Shape[] shapesArr = {rectangle, circle, triangle};
+        Arrays.sort(shapesArr);
+
+        System.out.println("\nSorterad Ordning:");
+        System.out.println("");
+        for (Shape shapeArea : shapesArr) {
+            System.out.println("Area: " + shapeArea.getArea());
+        }
 
     }
-
 }
 
