@@ -6,7 +6,7 @@ public class Circle extends Shape implements PrintValues {
     }
 
     public double getArea() {
-        return Math.PI * radius * radius;
+        return Math.PI * (radius * radius);
     }
 
     public double getPerimeter() {
