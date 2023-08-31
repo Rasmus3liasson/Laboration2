@@ -25,11 +25,13 @@ public class App {
         System.out.println("\nTriangelns area: " +  String.format("%.2f", triangleArea));
         System.out.println("\nTriangelns omkrets: " + String.format("%.2f", trianglePerimeter));
 
-        Shape[] shapesArr = {rectangle, circle, triangle,duplicatedTriangle};
-        Arrays.sort(shapesArr);
+
+        Shape[] shapesArr = {rectangle, circle, triangle, duplicatedTriangle};
+        ArrayList <Shape> shapesList = new ArrayList<>(List.of(shapesArr));
+        Collections.sort(shapesList);
 
         // Using LinkedHashSet to keep the order
-        Set<Shape> shapeCollections = new LinkedHashSet<>(List.of(shapesArr));
+        Set<Shape> shapeCollections = new LinkedHashSet<>(shapesList);
 
         System.out.println("\nSorterad Ordning baserat på Area:");
         System.out.println("");
