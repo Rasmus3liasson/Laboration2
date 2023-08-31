@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.*;
 
 public class App {
     public static void main(String[] args) {
@@ -7,6 +7,7 @@ public class App {
         Rectangle rectangle = new Rectangle(10,5);
         Circle circle = new Circle(3);
         Triangle triangle = new Triangle(2,3,4);
+        Triangle duplicatedTriangle = new Triangle(2,3,4);
 
 
         double rectangleArea = rectangle.getArea();
@@ -24,12 +25,15 @@ public class App {
         System.out.println("\nTriangelns area: " +  String.format("%.2f", triangleArea));
         System.out.println("\nTriangelns omkrets: " + String.format("%.2f", trianglePerimeter));
 
-        Shape[] shapesArr = {rectangle, circle, triangle};
+        Shape[] shapesArr = {rectangle, circle, triangle,duplicatedTriangle};
         Arrays.sort(shapesArr);
 
-        System.out.println("\nSorterad Ordning:");
+        // Using LinkedHashSet to keep the order
+        Set<Shape> shapeCollections = new LinkedHashSet<>(List.of(shapesArr));
+
+        System.out.println("\nSorterad Ordning baserat på Area:");
         System.out.println("");
-        for (Shape shapeArea : shapesArr) {
+        for (Shape shapeArea : shapeCollections) {
             System.out.println("Area: " + shapeArea.getArea());
         }
 
